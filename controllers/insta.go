@@ -32,7 +32,6 @@ func (uc UserController) CreateUsers(w http.ResponseWriter, r *http.Request, _ h
 	uc.session.DB("http-json-api").C("users").Insert(user)
 
 	user_json, err := json.Marshal(user)
-
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -87,7 +86,6 @@ func (uc UserController) CreatePosts(w http.ResponseWriter, r *http.Request, _ h
 	uc.session.DB("http-json-api").C("posts").Insert(post)
 
 	post_json, err := json.Marshal(post)
-
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -109,7 +107,6 @@ func (uc UserController) GetPost(w http.ResponseWriter, r *http.Request, p httpr
 	oid := bson.ObjectIdHex(id)
 
 	var post models.Post
-
 	if err := uc.session.DB("http-json-api").C("posts").FindId(oid).One(&post); err != nil {
 		w.WriteHeader(404)
 		fmt.Println("Post not found")
@@ -153,10 +150,10 @@ func (uc UserController) GetUserPosts(w http.ResponseWriter, r *http.Request, p 
 	}
 
 	user_json, err := json.Marshal(user)
-	post_json, err1 := json.Marshal(post)
 	if err != nil {
 		fmt.Println(err)
 	}
+	post_json, err1 := json.Marshal(post)
 	if err1 != nil {
 		fmt.Println(err)
 	}
