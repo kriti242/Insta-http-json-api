@@ -1,0 +1,17 @@
+Insagram Backend API
+-----------------------
+
+Packages used :
+    fmt
+    encoding/json
+    net/http
+    httprouter
+    mongodb
+    mongodb/bson
+    
+Implemented :
+    /users      : POST
+    /users/id   : GET
+    /posts      : POST
+    /posts/id   :GET
+    
